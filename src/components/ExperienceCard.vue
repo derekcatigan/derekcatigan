@@ -1,6 +1,4 @@
 <script setup>
-import { BriefcaseIcon } from '@heroicons/vue/24/outline';
-
 defineProps({
   title: String,
   description: String,
@@ -12,7 +10,7 @@ defineProps({
   <div class="w-full mx-1 p-3 shadow rounded border border-gray-200">
     <div class="flex justify-between items-center gap-4">
       <h3 class="text-md font-semibold">{{ title }}</h3>
-      <p class="text-xs badge badge-ghost border border-gray-200">
+      <p class="text-xs text-nowrap badge badge-ghost border border-gray-200">
         {{ badge }}
       </p>
     </div>
