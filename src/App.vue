@@ -1,6 +1,7 @@
 <script setup>
 import { ref, watch, onMounted } from 'vue';
 import Profile from '../src/assets/Profile.jpg';
+import ExperienceCard from '../src/components/ExperienceCard.vue';
 import {
   MapPinIcon,
   BriefcaseIcon,
@@ -20,7 +21,7 @@ watch(theme, (newTheme) => {
 </script>
 
 <template>
-  <main class="h-screen mx-40">
+  <main class="h-screen mx-30">
     <header class="w-full p-5 flex justify-between">
       <div class="flex gap-4">
         <!-- Profile Avatar -->
@@ -116,7 +117,9 @@ watch(theme, (newTheme) => {
             and the Laravel framework, specializing in building secure,
             scalable, and user-friendly web applications. I am currently engaged
             in freelance projects, creating tailored solutions for clients to
-            meet their unique business needs.
+            meet their unique business needs. I value clean and minimalist
+            design principles, ensuring that every project is not only
+            functional but also visually simple, intuitive, and easy to use.
           </p>
         </div>
       </div>
@@ -124,7 +127,7 @@ watch(theme, (newTheme) => {
 
     <section class="techSection">
       <!-- Tech Stack Card -->
-      <div class="card w-full border border-gray-200 card-sm shadow-sm">
+      <div class="card w-full border border-gray-200 card-sm shadow-sm p-2">
         <div class="card-body">
           <h2 class="card-title">
             <span><ServerStackIcon class="size-3.5" /></span>Tech Stack
@@ -133,7 +136,7 @@ watch(theme, (newTheme) => {
             <!-- Frontend Stack -->
             <div class="flex justify-center-center flex-col mb-2">
               <h2 class="text-md font-bold">Front-end</h2>
-              <div class="flex items-center gap-1.5">
+              <div class="flex flex-wrap items-center gap-1.5">
                 <div class="badge badge-ghost badge-sm border border-gray-400">
                   HTML5
                 </div>
@@ -158,9 +161,9 @@ watch(theme, (newTheme) => {
               </div>
             </div>
             <!-- Backend Stack -->
-            <div class="flex justify-center-center flex-col">
+            <div class="flex justify-center-center flex-col mb-2">
               <h2 class="text-md font-bold">Back-end</h2>
-              <div class="flex items-center gap-1.5">
+              <div class="flex flex-wrap items-center gap-1.5">
                 <div class="badge badge-ghost badge-sm border border-gray-400">
                   PHP
                 </div>
@@ -168,10 +171,28 @@ watch(theme, (newTheme) => {
                   C#
                 </div>
                 <div class="badge badge-ghost badge-sm border border-gray-400">
+                  NodeJs
+                </div>
+                <div class="badge badge-ghost badge-sm border border-gray-400">
                   Laravel
                 </div>
                 <div class="badge badge-ghost badge-sm border border-gray-400">
                   MySQL
+                </div>
+              </div>
+            </div>
+            <!-- Tools & Environment Stack -->
+            <div class="flex justify-center-center flex-col">
+              <h2 class="text-md font-bold">Tools & Environment</h2>
+              <div class="flex flex-wrap items-center gap-1.5">
+                <div class="badge badge-ghost badge-sm border border-gray-400">
+                  Xampp
+                </div>
+                <div class="badge badge-ghost badge-sm border border-gray-400">
+                  MySQL Workbench
+                </div>
+                <div class="badge badge-ghost badge-sm border border-gray-400">
+                  Composer
                 </div>
               </div>
             </div>
@@ -183,13 +204,51 @@ watch(theme, (newTheme) => {
       <div class="card w-full border border-gray-200 card-sm shadow-sm">
         <div class="card-body">
           <h2 class="card-title">
-            <span><BriefcaseIcon class="size-3.5" /></span>Experience
+            <span><BriefcaseIcon class="size-3.5" /></span> Experience
           </h2>
-          <!-- Timeline -->
-          <p>
-            A card component has a figure, a body part, and inside body there
-            are title and actions parts
-          </p>
+          <ExperienceCard
+            title="Bachelor of Science in Information Technology Major in Programming"
+            badge="June 2025"
+            description="Graduated from Southern Leyte State University - Main Campus"
+          />
+          <ExperienceCard
+            title="Software Developer - Intern"
+            badge="Jan 2025 - Apr 2025"
+          >
+            <li>
+              Developed a web-based application to streamline customer
+              transaction management using PHP and Laravel
+            </li>
+            <li>
+              Implemented secure user authentication, complete CRUD operations,
+              and dynamic report generation features
+            </li>
+            <li>
+              Utilized MySQL for backend data storage and jQuery for client-side
+              interactivity
+            </li>
+          </ExperienceCard>
+
+          <ExperienceCard title="Capstone Lead Programmer" badge="Academic">
+            <h2 class="text-sm font-semibold">
+              Web-Based Information Management System for MSWD with GIS
+              Integration
+            </h2>
+            <li>
+              Led the development of an information system tailored for local
+              social welfare offices, integrating Laravel and Leaflet.js for
+              real-time geospatial data visualization
+            </li>
+            <li>
+              Designed and implemented a role-based access control system, an
+              interactive analytics dashboard, and map-based views for service
+              monitoring and planning
+            </li>
+            <li>
+              Prioritized data security, user-friendly interfaces, and
+              performance optimization in a collaborative academic environment.
+            </li>
+          </ExperienceCard>
         </div>
       </div>
     </section>
@@ -216,5 +275,26 @@ html[data-theme='dark'] .resume-btn {
 
 .techSection > div {
   flex: 1;
+}
+
+.aboutSection {
+  display: block;
+}
+.aboutSection > div {
+  flex: none;
+  width: 100%;
+}
+
+@media (max-width: 1030px) {
+  main {
+    width: 100%;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+
+  .techSection {
+    flex-direction: column;
+  }
 }
 </style>
