@@ -39,7 +39,6 @@ defineProps({
 .box-container {
   width: 100%;
   height: 100%;
-  margin: 5px;
   border: 1px solid rgb(170, 170, 170);
   border-radius: 5px;
   padding: 5px;
