@@ -9,6 +9,7 @@ import {
 } from '@heroicons/vue/24/outline';
 
 const theme = ref(localStorage.getItem('theme') || 'light');
+const showResumeModal = ref(false);
 
 onMounted(() => {
   document.documentElement.setAttribute('data-theme', theme.value);
@@ -46,11 +47,19 @@ watch(theme, (newTheme) => {
         <div
           class="flex flex-col sm:flex-row items-start sm:items-center gap-2 mt-4"
         >
-          <button class="btn btn-sm w-auto">
+          <a
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=derekcatigan03@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-sm w-auto"
+          >
             <span><EnvelopeIcon class="size-3.5" /></span>
             Send email
-          </button>
-          <button class="btn btn-sm resume-btn w-auto">
+          </a>
+          <button
+            class="btn btn-sm resume-btn w-auto"
+            @click="showResumeModal = true"
+          >
             <span><DocumentTextIcon class="size-3.5" /></span>
             Resume
           </button>
@@ -110,6 +119,43 @@ watch(theme, (newTheme) => {
           </g>
         </svg>
       </label>
+    </div>
+  </div>
+
+  <!-- Resume Modal -->
+  <div
+    v-if="showResumeModal"
+    class="fixed inset-0 flex items-center backdrop-blur-sm bg-black/20 justify-center z-50"
+    @click.self="showResumeModal = false"
+  >
+    <div
+      class="bg-white p-4 rounded-lg shadow-xl w-[90%] md:w-[70%] lg:w-[60%] h-[85%] relative"
+    >
+      <!-- Close Button -->
+      <button
+        class="absolute top-2 right-2 text-gray-500 hover:text-gray-800 dark:hover:text-white"
+        @click="showResumeModal = false"
+      >
+        ✕
+      </button>
+
+      <!-- PDF Preview -->
+      <embed
+        src="/Catigan_Derek_Joshua(Resume).pdf#toolbar=0&navpanes=0&scrollbar=0"
+        type="application/pdf"
+        class="w-full h-[90%]"
+      />
+
+      <!-- Download Button -->
+      <div class="flex justify-end mt-2">
+        <a
+          href="/public/Catigan_Derek_Joshua(Resume).pdf"
+          download="Derek_Joshua_Catigan_Resume.pdf"
+          class="btn btn-sm bg-black text-white dark:bg-white dark:text-black"
+        >
+          Download
+        </a>
+      </div>
     </div>
   </div>
 </template>
