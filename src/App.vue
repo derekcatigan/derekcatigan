@@ -4,6 +4,9 @@ import HeaderProfile from './components/HeaderProfile.vue';
 import About from './components/About.vue';
 import TechStack from './components/TechStack.vue';
 import Experience from './components/Experience.vue';
+import Certificate from './components/Certificate.vue';
+import Projects from './components/Projects.vue';
+import Footer from './components/Footer.vue';
 </script>
 
 <template>
@@ -28,7 +31,19 @@ import Experience from './components/Experience.vue';
         <!-- Experience -->
         <Experience />
       </div>
+
+      <div class="flex flex-col lg:flex-row gap-1 mt-2">
+        <div class="flex-1">
+          <!-- Certificates -->
+          <Certificate />
+        </div>
+        <div class="flex-1">
+          <!-- Projects -->
+          <Projects />
+        </div>
+      </div>
     </section>
+    <Footer />
   </main>
 </template>
 
