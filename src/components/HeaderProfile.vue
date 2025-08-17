@@ -10,9 +10,17 @@ import {
 
 const theme = ref(localStorage.getItem('theme') || 'light');
 const showResumeModal = ref(false);
+const emailHref = ref('');
 
 onMounted(() => {
   document.documentElement.setAttribute('data-theme', theme.value);
+
+  if (/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)) {
+    emailHref.value = 'mailto:derekcatigan03@gmail.com';
+  } else {
+    emailHref.value =
+      'https://mail.google.com/mail/?view=cm&fs=1&to=derekcatigan03@gmail.com';
+  }
 });
 
 watch(theme, (newTheme) => {
@@ -48,7 +56,7 @@ watch(theme, (newTheme) => {
           class="flex flex-col sm:flex-row items-start sm:items-center gap-2 mt-4"
         >
           <a
-            href="https://mail.google.com/mail/?view=cm&fs=1&to=derekcatigan03@gmail.com"
+            :href="emailHref"
             target="_blank"
             rel="noopener noreferrer"
             class="btn btn-sm w-auto"
