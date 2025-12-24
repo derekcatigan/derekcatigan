@@ -1,0 +1,11 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+* {
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: #f3f4f6;
+}
