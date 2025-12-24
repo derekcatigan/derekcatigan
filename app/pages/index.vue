@@ -5,7 +5,7 @@
       data-aos="fade-up"
       data-aos-anchor-placement="top-bottom"
       class="divider">
-      PROFILE INFORMATION
+      PROFILE INFORMATIONS
     </div>
 
     <!-- Header Section -->
