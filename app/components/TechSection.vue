@@ -25,6 +25,7 @@ const Techs = {
     "GitHub",
     "VS Code",
     "MS Teams",
+    "Notion",
     "Figma",
     "MySQL Workbench",
     "Xampp",
